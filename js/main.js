@@ -17,7 +17,30 @@ document.getElementById("myTestEvent").addEventListener("click", function(){
     console.info("HEllo from addlist")
 })
 
+var colourButton = document.querySelectorAll(".colPicker")
+//console.dir(colourButton)
 
+for(var i=0; i<colourButton.length; i++)
+{
+    console.dir(colourButton[i])
+    colourButton[i].addEventListener("click", chgColour)
+}
+
+function chgColour(ev)
+{
+    console.info(ev.target.classList[0])
+    var colourPicked = ev.target.classList[0] + "Black"
+    var bodyElement = document.querySelector("body")
+    if(colourPicked === "resetBack")
+    {
+        bodyElement.removeAttribute("class")
+    }
+    else
+    { 
+        bodyElement.setAttribute("class", colourPicked)
+    }
+    
+}
 })()
 
 
